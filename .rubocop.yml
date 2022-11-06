@@ -1,0 +1,24 @@
+# This is the configuration used to check the rubocop source code.
+
+AllCops:
+  # For new versions
+  NewCops: enable
+  Exclude:
+    - spec/spec_helper.rb
+    - db/**/*
+    - docs/**/*
+    - bin/**/*
+    - exe/**/*
+    - public/**/*
+
+require: 
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-faker
+
+
+# Standard cops that should be disabled
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
