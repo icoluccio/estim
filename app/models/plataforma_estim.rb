@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Estim < ApplicationRecord
+class PlataformaEstim < ApplicationRecord
   DESCUENTO_MASIVO = 25
 
   def juego_mas_caro
@@ -16,7 +16,7 @@ class Estim < ApplicationRecord
   end
 
   def aplicar_descuento_masivo
-    juegos_caros.each { |juego| juego.descuento(Descuento::Directo.new(DESCUENTO_MASIVO)) }
+    juegos_caros.each { |juego| juego.update(descuento: Descuento::Directo.new(DESCUENTO_MASIVO)) }
   end
 
   def promedio_de_precio_para_menores(_pais)

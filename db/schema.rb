@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_06_185026) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_07_004210) do
   create_table "criticas", force: :cascade do |t|
-    t.text "texto"
+    t.text "contenido"
     t.boolean "critica_positiva"
+    t.integer "juego_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["juego_id"], name: "index_criticas_on_juego_id"
   end
 
   create_table "criticos", force: :cascade do |t|
@@ -29,11 +31,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_185026) do
     t.string "type"
     t.float "multiplicador"
     t.integer "descuento_fijo"
+    t.integer "juego_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["juego_id"], name: "index_descuentos_on_juego_id"
   end
 
-  create_table "estims", force: :cascade do |t|
+  create_table "juego_pagos", force: :cascade do |t|
+    t.integer "juego_id", null: false
+    t.integer "critico_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["critico_id"], name: "index_juego_pagos_on_critico_id"
+    t.index ["juego_id"], name: "index_juego_pagos_on_juego_id"
+  end
+
+  create_table "juegos", force: :cascade do |t|
+    t.integer "precio"
+    t.json "caracteristicas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,4 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_185026) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "plataforma_estims", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "juego_pagos", "criticos"
+  add_foreign_key "juego_pagos", "juegos"
 end

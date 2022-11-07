@@ -7,7 +7,7 @@ class Critico < ApplicationRecord
   end
 
   def escribir_critica(_juego)
-    Critica.new(texto:, critica_positiva: critica_positiva?(juego))
+    Critica.new(contenido: texto, critica_positiva: critica_positiva?(juego))
   end
 
   def texto; end

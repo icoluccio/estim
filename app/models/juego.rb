@@ -2,6 +2,9 @@
 
 # De cada juego se conoce su precio en dólares, que no puede cambiar.
 class Juego < ApplicationRecord
+  has_many :criticas, dependent: :destroy
+  has_one :descuento, dependent: :destroy
+
   def precio_bruto
     return precio if descuento.nil?
 
