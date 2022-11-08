@@ -23,10 +23,6 @@ class Juego < ApplicationRecord
     caracteristicas.include?(caracteristica)
   end
 
-  def recibir_critica(critica)
-    criticas.add(critica)
-  end
-
   def tiene_criticos_literarios
     criticas.any?(&:es_literaria)
   end
@@ -37,5 +33,10 @@ class Juego < ApplicationRecord
 
   def pasa_el_umbral(cantidad)
     criticas.select(&:positiva).size > cantidad
+  end
+
+  def agregar_critica!(critica)
+    criticas << critica
+    save!
   end
 end

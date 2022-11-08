@@ -1,0 +1,17 @@
+<%= form_with(model: critico) do |form| %>
+  <% if critico.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(critico.errors.count, "error") %> prohibited this critico from being saved:</h2>
+
+      <ul>
+        <% critico.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

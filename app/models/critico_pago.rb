@@ -9,6 +9,6 @@ class CriticoPago < Critico
   end
 
   def texto
-    PALABRAS.sample(5)
+    PALABRAS.sample(5).join(' ')
   end
 end

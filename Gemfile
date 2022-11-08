@@ -23,6 +23,7 @@ gem 'jbuilder'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'administrate'
+gem 'administrate-field-select', '~> 2.0', require: 'administrate/field/select_basic'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

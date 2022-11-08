@@ -76,6 +76,8 @@ GEM
       kaminari (>= 1.0)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    administrate-field-select (2.1.0)
+      administrate (~> 0.1, >= 0.1.5)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -302,6 +304,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  administrate-field-select (~> 2.0)
   bootsnap (>= 1.4.4)
   byebug
   capybara

@@ -6,7 +6,7 @@ class Critico < ApplicationRecord
     juego.save!
   end
 
-  def escribir_critica(_juego)
+  def escribir_critica(juego)
     Critica.new(contenido: texto, critica_positiva: critica_positiva?(juego))
   end
 

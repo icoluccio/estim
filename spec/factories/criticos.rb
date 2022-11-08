@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :critico do
-    type { %w[usuario critico critico_pago revista].sample }
-    criticos { create_list(:critico, 2, type: 'usuario') }
+    type { %w[Usuario Critico CriticoPago Revista].sample }
+    criticos { create_list(:critico, 2, type: 'Usuario') }
     actitud_positiva { [true, false].sample }
   end
 

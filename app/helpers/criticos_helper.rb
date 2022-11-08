@@ -1,0 +1,2 @@
+module CriticosHelper
+end
