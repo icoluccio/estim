@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_004210) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pais", force: :cascade do |t|
+  create_table "paises", force: :cascade do |t|
     t.integer "cotizacion"
     t.json "caracteristicas_prohibidas"
     t.datetime "created_at", null: false
